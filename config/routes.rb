@@ -2,6 +2,7 @@ Flixter2::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resource :dashboard, :only => [:show]
   root 'static_pages#index'
+  get 'privacy', :to => 'static_pages#privacy'
   resources :courses, :only => [:index, :show] do
     resources :enrollments, :only => :create
   end
